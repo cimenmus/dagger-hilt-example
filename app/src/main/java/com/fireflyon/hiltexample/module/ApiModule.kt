@@ -7,12 +7,12 @@ import com.fireflyon.hiltexample.api.DisplayOpsApiService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.components.SingletonComponent
+import dagger.hilt.android.components.ApplicationComponent
 import retrofit2.Retrofit
 
 @Suppress("unused")
 @Module
-@InstallIn(SingletonComponent::class)
+@InstallIn(ApplicationComponent::class)
 class ApiModule {
 
     @Provides
