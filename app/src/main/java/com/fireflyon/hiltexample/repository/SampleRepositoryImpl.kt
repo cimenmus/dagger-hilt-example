@@ -12,10 +12,13 @@ class SampleRepositoryImpl
                     @SampleRemoteDataSourceQualifier private val sampleRemoteDataSource: SampleDataSource,
                     @SampleLocalDataSourceQualifier private val sampleLocalDataSource: SampleDataSource): SampleRepository {
 
-    override fun getSampleData(): SampleData {
+    override suspend fun getSampleData(): SampleData {
         networkUtils.printInfo("Interface Implementation")
         val dataFromRemote = sampleRemoteDataSource.getSampleData()
+        saveSampleData(data = dataFromRemote)
         val dataFromLocal = sampleLocalDataSource.getSampleData()
-        return dataFromRemote
+        return dataFromLocal
     }
+
+    override suspend fun saveSampleData(data: SampleData) = sampleLocalDataSource.saveSampleData(data)
 }

@@ -1,3 +1,12 @@
 package com.fireflyon.hiltexample.common
 
-data class SampleData(val id: String = "", val name: String = "")
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity
+data class SampleData(
+
+    @PrimaryKey
+    val id: String = "",
+
+    val name: String = "")

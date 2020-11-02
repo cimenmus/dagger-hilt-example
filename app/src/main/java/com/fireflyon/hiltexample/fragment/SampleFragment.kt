@@ -10,6 +10,8 @@ import com.fireflyon.hiltexample.utils.SampleUtils
 import com.fireflyon.hiltexample.viewmodel.SampleViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_sample.*
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -54,7 +56,9 @@ class SampleFragment: BaseFragment<FragmentSampleBinding, SampleViewModel>() {
 
     private fun startViewModel(){
         viewModel.printInfo()
-        val data = viewModel.getSampleData()
-        Log.i("mstf", "id: ${data.id} name: ${data.name}")
+        GlobalScope.launch {
+            val data = viewModel.getSampleData()
+            Log.i("mstf", "id: ${data.id} name: ${data.name}")
+        }
     }
 }

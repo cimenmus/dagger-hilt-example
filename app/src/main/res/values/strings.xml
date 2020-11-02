@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Hilt Example</string>
+    <string name="base_url_bland">https://beta-driverops.api.fireflyon.com</string>
+    <string name="base_url_display">https://driverops.api.fireflyon.com</string>
 </resources>

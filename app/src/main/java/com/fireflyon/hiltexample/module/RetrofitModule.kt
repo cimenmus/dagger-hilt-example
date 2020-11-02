@@ -1,16 +1,17 @@
 package com.fireflyon.hiltexample.module
 
+import android.content.Context
 import com.fireflyon.hiltexample.BuildConfig
-import com.fireflyon.hiltexample.annotation.BlandOkHttpClientQualifier
-import com.fireflyon.hiltexample.annotation.BlandRetrofitQualifier
-import com.fireflyon.hiltexample.annotation.DisplayOpsOkHttpClientQualifier
-import com.fireflyon.hiltexample.annotation.DisplayOpsRetrofitQualifier
+import com.fireflyon.hiltexample.R
+import com.fireflyon.hiltexample.annotation.*
 import com.fireflyon.hiltexample.api.UTCAdapter
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ActivityContext
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -24,10 +25,11 @@ class RetrofitModule {
 
     @DisplayOpsRetrofitQualifier
     @Provides
-    fun provideDisplayOpsRetrofit(gsonConverterFactory: GsonConverterFactory,
+    fun provideDisplayOpsRetrofit(@BaseUrlDisplayQualifier baseUrl: String,
+                                  gsonConverterFactory: GsonConverterFactory,
                                   @DisplayOpsOkHttpClientQualifier okHttpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("https://beta-driverops.api.fireflyon.com")
+            .baseUrl(baseUrl)
             .addConverterFactory(gsonConverterFactory)
             .client(okHttpClient)
             .build()
@@ -35,14 +37,25 @@ class RetrofitModule {
 
     @BlandRetrofitQualifier
     @Provides
-    fun provideBlandRetrofit(gsonConverterFactory: GsonConverterFactory,
-                               @BlandOkHttpClientQualifier okHttpClient: OkHttpClient): Retrofit {
+    fun provideBlandRetrofit(@BaseUrlBlandQualifier baseUrl: String,
+                             gsonConverterFactory: GsonConverterFactory,
+                             @BlandOkHttpClientQualifier okHttpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("https://beta-driverops.api.fireflyon.com")
+            .baseUrl(baseUrl)
             .addConverterFactory(gsonConverterFactory)
             .client(okHttpClient)
             .build()
     }
+
+    @BaseUrlDisplayQualifier
+    @Provides
+    fun provideDisplayBaseUrl(@ApplicationContext context: Context) =
+        context.getString(R.string.base_url_display)
+
+    @BaseUrlBlandQualifier
+    @Provides
+    fun provideBlandBaseUrl(@ApplicationContext context: Context) =
+        context.getString(R.string.base_url_bland)
 
     @Provides
     fun provideGsonConverterFactory(gson: Gson): GsonConverterFactory =

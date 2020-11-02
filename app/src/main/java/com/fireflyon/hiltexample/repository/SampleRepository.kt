@@ -4,5 +4,7 @@ import com.fireflyon.hiltexample.common.SampleData
 
 interface SampleRepository {
 
-    fun getSampleData(): SampleData
+    suspend fun getSampleData(): SampleData
+
+    suspend fun saveSampleData(data: SampleData)
 }

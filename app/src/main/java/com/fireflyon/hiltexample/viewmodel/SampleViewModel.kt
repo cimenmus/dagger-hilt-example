@@ -14,6 +14,6 @@ class SampleViewModel
 
     fun printInfo() = sampleUtils.printInfo("ViewModel")
 
-    fun getSampleData() = sampleRepository.getSampleData()
+    suspend fun getSampleData() = sampleRepository.getSampleData()
 
 }
