@@ -1,11 +1,13 @@
 package com.fireflyon.hiltexample.activity
 
+import android.util.Log
 import com.fireflyon.hiltexample.viewmodel.MainViewModel
 import com.fireflyon.hiltexample.R
 import com.fireflyon.hiltexample.fragment.SampleFragment
-import com.fireflyon.hiltexample.utils.SampleUtils
+import com.icmen.common.utils.SampleUtils
 import com.fireflyon.hiltexample.databinding.ActivityMainBinding
 import com.fireflyon.hiltexample.fragment.SecondFragment
+import com.icmen.common.common.DeviceFacade
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
 import javax.inject.Inject
@@ -16,6 +18,9 @@ class MainActivity: BaseActivity<ActivityMainBinding, MainViewModel>() {
 
     @Inject
     lateinit var sampleUtils: SampleUtils
+
+    @Inject
+    lateinit var deviceFacade: DeviceFacade
 
     private var timer = Timer("sampleTimer", false)
 
@@ -32,6 +37,7 @@ class MainActivity: BaseActivity<ActivityMainBinding, MainViewModel>() {
         super.initLogic()
         print(sampleUtils.printInfo("Activity"))
         viewModel.printInfo()
+        Log.i("mstf", deviceFacade.getDeviceType())
     }
 
     private fun showFragment(){

@@ -4,8 +4,7 @@ import android.app.Service
 import android.content.Intent
 import android.os.Binder
 import android.os.IBinder
-import com.fireflyon.hiltexample.utils.NetworkUtils
-import kotlinx.coroutines.*
+import com.icmen.common.utils.NetworkUtils
 import javax.inject.Inject
 
 @Suppress("SpellCheckingInspection")

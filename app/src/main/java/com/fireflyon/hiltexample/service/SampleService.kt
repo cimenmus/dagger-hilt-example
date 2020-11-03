@@ -1,6 +1,6 @@
 package com.fireflyon.hiltexample.service
 
-import com.fireflyon.hiltexample.utils.SampleUtils
+import com.icmen.common.utils.SampleUtils
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 

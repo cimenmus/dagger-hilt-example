@@ -1,7 +1,7 @@
 package com.fireflyon.hiltexample.broadcast
 
 import android.content.Intent
-import com.fireflyon.hiltexample.utils.SampleUtils
+import com.icmen.common.utils.SampleUtils
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 

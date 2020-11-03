@@ -2,11 +2,10 @@ package com.fireflyon.hiltexample.provider
 
 import android.content.ContentProvider
 import android.content.Context
-import com.fireflyon.hiltexample.utils.NetworkUtils
+import com.icmen.common.utils.NetworkUtils
 import dagger.hilt.EntryPoint
 import dagger.hilt.EntryPoints
 import dagger.hilt.InstallIn
-import dagger.hilt.android.EntryPointAccessors
 import dagger.hilt.android.components.ApplicationComponent
 import javax.inject.Inject
 

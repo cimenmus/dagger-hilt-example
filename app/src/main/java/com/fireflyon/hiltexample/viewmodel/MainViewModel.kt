@@ -2,7 +2,7 @@ package com.fireflyon.hiltexample.viewmodel
 
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.ViewModel
-import com.fireflyon.hiltexample.utils.SampleUtils
+import com.icmen.common.utils.SampleUtils
 
 class MainViewModel
 @ViewModelInject constructor(

@@ -6,7 +6,7 @@ import com.fireflyon.hiltexample.*
 import com.fireflyon.hiltexample.broadcast.SampleBroadcastReceiver
 import com.fireflyon.hiltexample.databinding.FragmentSampleBinding
 import com.fireflyon.hiltexample.service.SampleService
-import com.fireflyon.hiltexample.utils.SampleUtils
+import com.icmen.common.utils.SampleUtils
 import com.fireflyon.hiltexample.viewmodel.SampleViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_sample.*

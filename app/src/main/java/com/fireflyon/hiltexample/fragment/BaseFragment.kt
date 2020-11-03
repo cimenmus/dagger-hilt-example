@@ -10,8 +10,8 @@ import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.fireflyon.hiltexample.utils.NetworkUtils
-import com.fireflyon.hiltexample.common.autoCleared
+import com.icmen.common.utils.NetworkUtils
+import com.icmen.common.common.autoCleared
 import javax.inject.Inject
 
 abstract class BaseFragment<VB: ViewDataBinding, VM: ViewModel>: Fragment() {

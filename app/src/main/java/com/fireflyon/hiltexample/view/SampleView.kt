@@ -5,7 +5,7 @@ import android.util.AttributeSet
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.fireflyon.hiltexample.R
-import com.fireflyon.hiltexample.utils.SampleUtils
+import com.icmen.common.utils.SampleUtils
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.view_sample.view.*
 import javax.inject.Inject

@@ -20,6 +20,22 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    flavorDimensions "device_type"
+    productFlavors {
+        tablet {
+            dimension "device_type"
+            buildConfigField("java.lang.String", "DEVICE_TYPE", '"TABLET"')
+        }
+        display {
+            dimension "device_type"
+            buildConfigField("java.lang.String", "DEVICE_TYPE", '"XIXUN"')
+        }
+        strong {
+            dimension "device_type"
+            buildConfigField("java.lang.String", "DEVICE_TYPE", '"STRONG"')
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -68,4 +84,10 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(path: ':common')
+    implementation project(path: ':display')
+    implementation project(path: ':tablet')
+    implementation project(path: ':strong')
 }

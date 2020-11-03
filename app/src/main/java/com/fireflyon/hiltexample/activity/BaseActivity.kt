@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.fireflyon.hiltexample.utils.NetworkUtils
+import com.icmen.common.utils.NetworkUtils
 import javax.inject.Inject
 
 abstract class BaseActivity<VB: ViewDataBinding, VM: ViewModel>: AppCompatActivity(){
