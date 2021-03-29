@@ -8,10 +8,10 @@ import com.icmen.common.utils.SampleUtils
 import dagger.hilt.EntryPoint
 import dagger.hilt.EntryPoints
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ApplicationComponent
+import dagger.hilt.components.SingletonComponent
 import javax.inject.Inject
 
-@InstallIn(ApplicationComponent::class)
+@InstallIn(SingletonComponent::class)
 @EntryPoint
 interface SampleContentProviderEntryPoint {
     fun sampleUtils(): SampleUtils

@@ -47,10 +47,12 @@ class MainActivity: BaseActivity<ActivityMainBinding, MainViewModel>() {
             .commit()
 
         timer.schedule(10 * 1000) {
-            supportFragmentManager
-                .beginTransaction()
-                .replace(R.id.fragmentContainer, SecondFragment.newInstance())
-                .commit()
+            runOnUiThread {
+                supportFragmentManager
+                    .beginTransaction()
+                    .replace(R.id.fragmentContainer, SecondFragment.newInstance())
+                    .commit()
+            }
         }
     }
 

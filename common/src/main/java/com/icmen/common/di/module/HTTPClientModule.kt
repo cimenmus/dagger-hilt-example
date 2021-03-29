@@ -10,14 +10,14 @@ import com.icmen.common.api.TimeoutHeaderInterceptor
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ApplicationComponent
+import dagger.hilt.components.SingletonComponent
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import java.util.concurrent.TimeUnit
 
 @Module
-@InstallIn(ApplicationComponent::class)
+@InstallIn(SingletonComponent::class)
 class HTTPClientModule {
 
     @BlandOkHttpClientQualifier
@@ -26,7 +26,9 @@ class HTTPClientModule {
 
     @DisplayOpsOkHttpClientQualifier
     @Provides
-    fun provideDisplayOpsOkHttpClient(builder: OkHttpClient.Builder): OkHttpClient = builder.build()
+    fun provideDisplayOpsOkHttpClient(builder: OkHttpClient.Builder): OkHttpClient {
+        return builder.build()
+    }
 
     @Provides
     fun provideDisplayOpsOkHttpBuilder(@DisplayOpsInterceptorQualifier requestInterceptor: Interceptor,
